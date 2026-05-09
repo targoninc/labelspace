@@ -1,0 +1,9 @@
+[submodule "tri-web"]
+	path = tri-web
+	url = https://github.com/targoninc/tri-web.git
+[submodule "artist-space-ui"]
+	path = artist-space-ui
+	url = https://github.com/targoninc/artist-space-ui.git
+[submodule "artist-space-backend"]
+	path = artist-space-backend
+	url = https://github.com/targoninc/artist-space-backend.git

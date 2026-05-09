@@ -1,0 +1,3 @@
+- Never run a dev server, I very likely already have one running
+- Always use bun instead of npm, npx or node
+- No need to extensively explain things to me, I can understand what you wrote by reading it

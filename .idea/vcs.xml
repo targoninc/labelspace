@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/artist-space-backend" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/artist-space-ui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tri-web" vcs="Git" />
   </component>
 </project>

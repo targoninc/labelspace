@@ -1,6 +1,6 @@
-# LabelSpace (tri-workspace)
+# LabelSpace
 
-Monorepo for the LabelSpace music label platform. Contains three component projects managed via Git submodules:
+Monorepo for LabelSpace, a selfhostable music label platform. Contains three component projects managed via Git submodules:
 
 | Component                                      | Docker Image            | Description                                          |
 |------------------------------------------------|-------------------------|------------------------------------------------------|

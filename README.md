@@ -4,8 +4,8 @@ Monorepo for LabelSpace, a selfhostable music label platform. Contains three com
 
 | Component                                      | Docker Image            | Description                                          |
 |------------------------------------------------|-------------------------|------------------------------------------------------|
-| [artist-space-backend](./artist-space-backend) | `loudar/labelspace-api` | Backend API (Express + MariaDB)                      |
-| [artist-space-ui](./artist-space-ui)           | `loudar/labelspace-ui`  | Artist portal frontend                               |
+| [labelspace-api](./labelspace-api) | `loudar/labelspace-api` | Backend API (Express + MariaDB)                      |
+| [labelspace-ui](./labelspace-ui)   | `loudar/labelspace-ui`  | Artist portal frontend                               |
 | [tri-web](./tri-web)                           | —                       | Public label website example (https://trirecords.eu) |
 
 ## Deploy
@@ -26,8 +26,6 @@ The `api` and `ui` services use pre-built public images from Docker Hub. Set env
 git clone --recurse-submodules <repo-url>
 
 # Copy environment files
-cp artist-space-backend/.env.example artist-space-backend/.env
-cp artist-space-ui/.env.example artist-space-ui/.env
 cp tri-web/.env.example tri-web/.env
 
 # Edit .env files with your settings, then:
@@ -42,7 +40,7 @@ Each component repo has its own GitHub Actions workflow that builds and pushes t
 
 | Repo                                             | Workflow                                                                              | Image                   |
 |--------------------------------------------------|---------------------------------------------------------------------------------------|-------------------------|
-| [`artist-space-backend`](./artist-space-backend) | [`.github/workflows/build.yml`](./artist-space-backend/.github/workflows/build.yml)   | `loudar/labelspace-api` |
-| [`artist-space-ui`](./artist-space-ui)           | [`.github/workflows/build.yml`](./artist-space-ui/.github/workflows/build.yml)        | `loudar/labelspace-ui`  |
+| [`labelspace-api`](./labelspace-api) | [`.github/workflows/build.yml`](./labelspace-api/.github/workflows/build.yml) | `loudar/labelspace-api` |
+| [`labelspace-ui`](./labelspace-ui)   | [`.github/workflows/build.yml`](./labelspace-ui/.github/workflows/build.yml)  | `loudar/labelspace-ui`  |
 
 Set `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets in each GitHub repo's settings.

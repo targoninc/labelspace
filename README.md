@@ -10,6 +10,8 @@ Monorepo for the LabelSpace music label platform. Contains three component proje
 
 ## Deploy
 
+Download [docker-compose.yaml](./docker-compose.yaml) to a directory where you want to keep it. Then, with a terminal open in that directory:
+
 ```bash
 docker compose pull
 docker compose up -d

@@ -1,0 +1,22 @@
+log:
+  level: info
+
+runner:
+  file: .runner
+  capacity: 1
+  timeout: 30m
+  labels:
+    - ubuntu-latest:docker://node-lts-docker:latest
+
+container:
+  options: -v /var/run/docker.sock:/var/run/docker.sock
+
+cache:
+  enabled: false
+
+server:
+  connections:
+    codeberg:
+      url: https://codeberg.org/
+      uuid: 84864b4e-7b32-4bdb-9547-f9b59012d32e
+      token: fe3b60853c768ab9fa84527c5929252fd9459a11

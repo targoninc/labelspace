@@ -1,0 +1,5 @@
+forgejo-runner.exe
+runner-token
+runner.log
+runner.err
+.runner-data/

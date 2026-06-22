@@ -1,0 +1,59 @@
+services:
+  db:
+    image: mariadb:11
+    restart: unless-stopped
+    ports:
+      - "3308:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-example}
+      MARIADB_DATABASE: tri
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    image: loudar/labelspace-api:latest
+    build:
+      context: ./artist-space-backend
+    restart: unless-stopped
+    ports:
+      - "8090:8090"
+    env_file: ./artist-space-backend/.env
+    environment:
+      MARIADB_HOST: db
+      MARIADB_PORT: 3306
+    volumes:
+      - storage_data:/mnt/tridrive-1
+    depends_on:
+      db:
+        condition: service_healthy
+
+  ui:
+    image: loudar/labelspace-ui:latest
+    build:
+      context: ./artist-space-ui
+    restart: unless-stopped
+    ports:
+      - "3050:3050"
+    env_file: ./artist-space-ui/.env
+    depends_on:
+      - api
+
+  web:
+    image: loudar/labelspace-web:latest
+    build:
+      context: ./tri-web
+    restart: unless-stopped
+    ports:
+      - "3003:3003"
+    env_file: ./tri-web/.env
+    depends_on:
+      - api
+
+volumes:
+  db_data:
+  storage_data:

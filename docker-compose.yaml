@@ -17,12 +17,10 @@ services:
 
   api:
     image: loudar/labelspace-api:latest
-    build:
-      context: ./artist-space-backend
     restart: unless-stopped
     ports:
       - "8090:8090"
-    env_file: ./artist-space-backend/.env
+    env_file: ./api.env
     environment:
       MARIADB_HOST: db
       MARIADB_PORT: 3306
@@ -34,23 +32,10 @@ services:
 
   ui:
     image: loudar/labelspace-ui:latest
-    build:
-      context: ./artist-space-ui
     restart: unless-stopped
     ports:
       - "3050:3050"
-    env_file: ./artist-space-ui/.env
-    depends_on:
-      - api
-
-  web:
-    image: loudar/labelspace-web:latest
-    build:
-      context: ./tri-web
-    restart: unless-stopped
-    ports:
-      - "3003:3003"
-    env_file: ./tri-web/.env
+    env_file: ./ui.env
     depends_on:
       - api
 
